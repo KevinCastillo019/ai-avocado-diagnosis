@@ -1,0 +1,272 @@
+{
+  "inicio": "inicio",
+  "nodos": {
+    "inicio": {
+      "id": "inicio",
+      "tipo": "pregunta",
+      "texto": "Buenas, patron. Antes del dano, como ha estado el clima ultimamente en la zona?",
+      "opciones": [
+        { "texto": "Ha llovido bastante o seguido", "destino": "humedad_lote" },
+        { "texto": "Ha estado variable, con ratos de sol y lluvia", "destino": "humedad_lote" },
+        { "texto": "Ha hecho calor y mas bien seco", "destino": "humedad_lote" }
+      ]
+    },
+    "humedad_lote": {
+      "id": "humedad_lote",
+      "tipo": "pregunta",
+      "texto": "Como siente la humedad del lote o del suelo en estos dias?",
+      "opciones": [
+        { "texto": "Muy humedo o con partes encharcadas", "destino": "ambiente_lote" },
+        { "texto": "Humedo normal, sin empozamiento", "destino": "ambiente_lote" },
+        { "texto": "Seco o polvoriento", "destino": "ambiente_lote" }
+      ]
+    },
+    "ambiente_lote": {
+      "id": "ambiente_lote",
+      "tipo": "pregunta",
+      "texto": "Y como esta el ambiente del cultivo?",
+      "opciones": [
+        { "texto": "Muy cerrado, con poca ventilacion y mucha sombra", "destino": "zona_dano" },
+        { "texto": "Ventilado, con buena entrada de luz", "destino": "zona_dano" },
+        { "texto": "Con cambios bruscos entre calor del dia y frio o neblina", "destino": "zona_dano" }
+      ]
+    },
+    "zona_dano": {
+      "id": "zona_dano",
+      "tipo": "pregunta",
+      "texto": "Ahora si, en que parte esta viendo el dano?",
+      "opciones": [
+        { "texto": "En las hojas", "destino": "hojas_tipo_dano" },
+        { "texto": "En el tronco o las ramas", "destino": "tronco_tipo_dano" },
+        { "texto": "En el aguacate (fruto)", "destino": "fruto_tipo_dano" }
+      ]
+    },
+    "hojas_tipo_dano": {
+      "id": "hojas_tipo_dano",
+      "tipo": "pregunta",
+      "texto": "Que tipo de dano observa en las hojas?",
+      "opciones": [
+        { "texto": "Veo manchas o polvillos (Hongos)", "destino": "hojas_hongos_severidad" },
+        { "texto": "Se ven picadas o comidas (Bichos)", "destino": "hojas_insectos_alcance" },
+        { "texto": "Se ven amarillas, caidas o sin vigor", "destino": "hojas_decaimiento_patron" }
+      ]
+    },
+    "hojas_decaimiento_patron": {
+      "id": "hojas_decaimiento_patron",
+      "tipo": "pregunta",
+      "texto": "Como se ve ese decaimiento en las hojas y en el arbol?",
+      "opciones": [
+        { "texto": "El amarillamiento es general y el arbol crece lento", "destino": "diag_estres_nutricional" },
+        { "texto": "El arbol se marchita aunque el suelo sigue humedo", "destino": "diag_estres_radicular" },
+        { "texto": "Las puntas se ven secas o quemadas por falta de agua", "destino": "diag_estres_hidrico" }
+      ]
+    },
+    "hojas_hongos_severidad": {
+      "id": "hojas_hongos_severidad",
+      "tipo": "pregunta",
+      "texto": "Que tanta ceniza o mancha ve en el lote?",
+      "opciones": [
+        { "texto": "Apenas unos puntos en pocas hojas (Leve)", "destino": "diag_hongo_inicial" },
+        { "texto": "El arbol se ve blanco o muy manchado (Severo)", "destino": "diag_hongo_severo" }
+      ]
+    },
+    "hojas_insectos_alcance": {
+      "id": "hojas_insectos_alcance",
+      "tipo": "pregunta",
+      "texto": "Cuantos arboles del lote estan asi?",
+      "opciones": [
+        { "texto": "Solo este arbol o un par (Focalizado)", "destino": "diag_insectos_focalizados" },
+        { "texto": "Ya se esta pasando a todo el cultivo (Generalizado)", "destino": "diag_insectos_generalizados" }
+      ]
+    },
+    "tronco_tipo_dano": {
+      "id": "tronco_tipo_dano",
+      "tipo": "pregunta",
+      "texto": "Que nota en la madera del arbol?",
+      "opciones": [
+        { "texto": "Es un hueco con aserrin", "destino": "tronco_barrenador_impacto" },
+        { "texto": "Es una mancha oscura con baba blanca", "destino": "tronco_llagas_ubicacion" }
+      ]
+    },
+    "tronco_barrenador_impacto": {
+      "id": "tronco_barrenador_impacto",
+      "tipo": "pregunta",
+      "texto": "El dano afecta ramas secundarias o el tronco principal?",
+      "opciones": [
+        { "texto": "Solo ramas secundarias pequenas", "destino": "diag_barrenador_inicial" },
+        { "texto": "El dano esta en el tronco principal", "destino": "diag_barrenador_critico" }
+      ]
+    },
+    "tronco_llagas_ubicacion": {
+      "id": "tronco_llagas_ubicacion",
+      "tipo": "pregunta",
+      "texto": "Donde esta ubicada la llaga?",
+      "opciones": [
+        { "texto": "Esta empezando en una sola rama", "destino": "diag_llagas_iniciales" },
+        { "texto": "Esta en la base del tronco (cuello de raiz)", "destino": "diag_tristeza_severa" }
+      ]
+    },
+    "fruto_tipo_dano": {
+      "id": "fruto_tipo_dano",
+      "tipo": "pregunta",
+      "texto": "Donde es el dano principalmente?",
+      "opciones": [
+        { "texto": "Es por dentro de la pepa", "destino": "fruto_picudo_severidad" },
+        { "texto": "Es por fuera en la cascara", "destino": "fruto_rona_severidad" }
+      ]
+    },
+    "fruto_picudo_severidad": {
+      "id": "fruto_picudo_severidad",
+      "tipo": "pregunta",
+      "texto": "Cuanta fruta afectada ve por picudo?",
+      "opciones": [
+        { "texto": "Veo algunos frutos con huecos (Leve)", "destino": "diag_picudo_leve" },
+        { "texto": "Mucha fruta en el suelo y danada (Severo)", "destino": "diag_picudo_severo" }
+      ]
+    },
+    "fruto_rona_severidad": {
+      "id": "fruto_rona_severidad",
+      "tipo": "pregunta",
+      "texto": "Que tan extendidas estan las costras en el fruto?",
+      "opciones": [
+        { "texto": "Solo unas pocas manchas superficiales", "destino": "diag_rona_inicial" },
+        { "texto": "Todo el fruto esta cubierto de costras", "destino": "diag_rona_severa" }
+      ]
+    },
+    "diag_hongo_inicial": {
+      "id": "diag_hongo_inicial",
+      "tipo": "diagnostico",
+      "diagnostico": "Hongo en etapa inicial",
+      "tratamiento": [
+        "Control biologico con caldos minerales",
+        "Podas de limpieza"
+      ]
+    },
+    "diag_hongo_severo": {
+      "id": "diag_hongo_severo",
+      "tipo": "diagnostico",
+      "diagnostico": "Ataque severo de hongos (Antracnosis/Oidio)",
+      "tratamiento": [
+        "Aplicacion urgente de fungicidas sistemicos",
+        "Eliminar ramas muy afectadas"
+      ]
+    },
+    "diag_insectos_focalizados": {
+      "id": "diag_insectos_focalizados",
+      "tipo": "diagnostico",
+      "diagnostico": "Presencia de insectos (Trips/Hormiga)",
+      "tratamiento": [
+        "Barreras fisicas en el tronco",
+        "Revision manual"
+      ]
+    },
+    "diag_insectos_generalizados": {
+      "id": "diag_insectos_generalizados",
+      "tipo": "diagnostico",
+      "diagnostico": "Infestacion de insectos",
+      "tratamiento": [
+        "Control quimico dirigido",
+        "Uso de cebos toxicos en todo el lote"
+      ]
+    },
+    "diag_estres_nutricional": {
+      "id": "diag_estres_nutricional",
+      "tipo": "diagnostico",
+      "diagnostico": "Posible estres nutricional o deficiencia",
+      "tratamiento": [
+        "Revisar plan de fertilizacion",
+        "Evaluar pH, materia organica y analisis de suelo"
+      ]
+    },
+    "diag_estres_radicular": {
+      "id": "diag_estres_radicular",
+      "tipo": "diagnostico",
+      "diagnostico": "Posible problema radicular por exceso de humedad",
+      "tratamiento": [
+        "Mejorar drenaje y aireacion del suelo",
+        "Revisar presencia de fitoptora o dano de raiz"
+      ]
+    },
+    "diag_estres_hidrico": {
+      "id": "diag_estres_hidrico",
+      "tipo": "diagnostico",
+      "diagnostico": "Posible estres hidrico por falta de agua o calor fuerte",
+      "tratamiento": [
+        "Ajustar riego segun humedad real del suelo",
+        "Aplicar cobertura organica para conservar humedad"
+      ]
+    },
+    "diag_barrenador_inicial": {
+      "id": "diag_barrenador_inicial",
+      "tipo": "diagnostico",
+      "diagnostico": "Ataque inicial de barrenador",
+      "tratamiento": [
+        "Podar y quemar ramas",
+        "Sellar con pasta"
+      ]
+    },
+    "diag_barrenador_critico": {
+      "id": "diag_barrenador_critico",
+      "tipo": "diagnostico",
+      "diagnostico": "Barrenador de tronco critico",
+      "tratamiento": [
+        "Cirugia de tronco",
+        "Insecticida inyectado"
+      ]
+    },
+    "diag_llagas_iniciales": {
+      "id": "diag_llagas_iniciales",
+      "tipo": "diagnostico",
+      "diagnostico": "Llagas iniciales (Fitoptora)",
+      "tratamiento": [
+        "Raspado de herida",
+        "Fungicida a base de cobre"
+      ]
+    },
+    "diag_tristeza_severa": {
+      "id": "diag_tristeza_severa",
+      "tipo": "diagnostico",
+      "diagnostico": "Tristeza del aguacate severa",
+      "tratamiento": [
+        "Mejorar drenajes",
+        "Tratamiento de choque al suelo"
+      ]
+    },
+    "diag_picudo_leve": {
+      "id": "diag_picudo_leve",
+      "tipo": "diagnostico",
+      "diagnostico": "Presencia leve de picudo",
+      "tratamiento": [
+        "Recoleccion de frutos danados",
+        "Trampeo masivo"
+      ]
+    },
+    "diag_picudo_severo": {
+      "id": "diag_picudo_severo",
+      "tipo": "diagnostico",
+      "diagnostico": "Epidemia de picudo (el cure)",
+      "tratamiento": [
+        "Plan de choque quimico",
+        "Enterrar fruta con cal"
+      ]
+    },
+    "diag_rona_inicial": {
+      "id": "diag_rona_inicial",
+      "tipo": "diagnostico",
+      "diagnostico": "Rona inicial",
+      "tratamiento": [
+        "Limpiar ramas secas",
+        "Fungicida preventivo"
+      ]
+    },
+    "diag_rona_severa": {
+      "id": "diag_rona_severa",
+      "tipo": "diagnostico",
+      "diagnostico": "Rona severa",
+      "tratamiento": [
+        "Control quimico",
+        "Mejorar ventilacion del arbol"
+      ]
+    }
+  }
+}
